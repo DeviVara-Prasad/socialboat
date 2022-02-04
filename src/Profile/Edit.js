@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState } from 'react';
-import {Box,Button} from '@mui/material';
+import {Box,Button,Chip} from '@mui/material';
 import TextField from '@mui/material/TextField';
 import axios from 'axios';
 export default function Edit(){
@@ -18,7 +18,7 @@ export default function Edit(){
             axios.post("https://asia-south1-socialboat-dev.cloudfunctions.net/assignmentPost",{
             "uid": uid,   
             "name": name,
-                "age": age,
+                "age": parseInt(age),
                 "img": img,
                 "bio": bio,
                 "fb": fb,
@@ -32,9 +32,15 @@ export default function Edit(){
         }
     },[flag])
     const handler= (e,handle) =>{
+        if(e.target.value!=="" || e.target.value!==0)
          handle(e.target.value);
     }
     return (
+        <Box sx={{
+            display:"inline-flex",
+            flexDirection:"column"
+        }}>
+        <Chip label="Edit Profile" component="h1" color="primary" sx={{display:"inline",alignSelf:"center"}} />
         <Box
       component="form"
       sx={{
@@ -49,6 +55,7 @@ export default function Edit(){
     >
         <TextField
           id="outlined-required"
+          required
           label="Name"
           value = {name}
           onChange={
@@ -56,6 +63,7 @@ export default function Edit(){
           }
         />
         <TextField
+          required
           id="outlined-disabled"
           label="Bio"
           value = {bio}
@@ -67,6 +75,7 @@ export default function Edit(){
           id="outlined-password-input"
           label="Age"
           type="number"
+          required
           value = {age}
           onChange={
             (e)=> handler(e,setAge)}
@@ -74,6 +83,7 @@ export default function Edit(){
         <TextField
           id="outlined-read-only-input"
           label="Instagram"
+          required
           value = {instagram}
           onChange={
             (e)=> handler(e,setInstagram)}
@@ -81,15 +91,17 @@ export default function Edit(){
         <TextField
           id="outlined-number"
           label="Facebook"
+          required
           value={fb}
           onChange={
             (e)=> handler(e,setFb)}
         />
-        <TextField id="outlined-search" label="Search field" label="Img Link" value={img} 
+        <TextField required id="outlined-search" label="Search field" label="Img Link" value={img} 
          onChange={
             (e)=> handler(e,setImg)}
         />
         <TextField
+          required
           id="outlined-helperText"
           label="LinkedIn"
           value={linkedIn}
@@ -100,9 +112,10 @@ export default function Edit(){
             display: "flex"
         }}>
         <Button variant="contained" onClick={
-           ()=> setFlag(true)
+           ()=> setFlag(!flag)
         }>Submit</Button>
         </Box>
+    </Box>
     </Box>
     );
 }

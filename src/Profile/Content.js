@@ -3,7 +3,7 @@ import axios from 'axios';
 import VideoCard from './VideoCard';
 import { Box } from '@mui/material';
 import {Chip} from '@mui/material';
-import {Card} from '@mui/material';
+import {Card,CircularProgress} from '@mui/material';
 import ProfileDetails from './ProfileDetails';
 const Content = ({searchText,profileData}) =>{
     const [result,updateResult] = useState([]);
@@ -41,7 +41,8 @@ const Content = ({searchText,profileData}) =>{
             >{
                 !loading? result.map(
                     (el)=> <VideoCard video={el}/>
-                ): "Loading"
+                ): <CircularProgress />
+
                 
                 }
                 <Card sx={{ maxWidth: 387, px: ".5rem",m: ".5rem", display: 'flex', justifyContent:'center',alignItems:'center' }}>

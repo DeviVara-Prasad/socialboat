@@ -1,11 +1,12 @@
 import React from 'react';
 import {Typography} from '@mui/material';
-import {Box,Avatar,Link} from '@mui/material';
+import {Box,Avatar,Link,CircularProgress} from '@mui/material';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import LinkedInIcon  from '@mui/icons-material/LinkedIn';
 const ProfileDetails = ({profileData}) =>{
     return(
+        profileData?
         <Box sx={{
           display: "flex",
           flexDirection: "row",
@@ -49,12 +50,13 @@ const ProfileDetails = ({profileData}) =>{
       </Typography>
       <Typography variant="h" component="h2"sx={{ m:"0.5rem", textAlign: "center"}} >
          
-         <Link href={profileData.fb}><LinkedInIcon sx={{width:"100%"}}>
+         <Link href={profileData.linkedIn}><LinkedInIcon sx={{width:"100%"}}>
          </LinkedInIcon></Link>
 
       </Typography>
       </Box>  
-      </Box>
+      </Box>: <CircularProgress />
+
     )
 }
 export default ProfileDetails

@@ -16,6 +16,9 @@ export default function ProfileTab({profileData}) {
   const handleClo = () => {
     window.location.href="/Login";
   };
+  const handle = () => {
+    setAnchorEl(null);
+  };
 
   return (
     <Box >
@@ -35,6 +38,7 @@ export default function ProfileTab({profileData}) {
         id="basic-menu"
         anchorEl={anchorEl}
         open={open}
+        onClose={handle}
         MenuListProps={{
           'aria-labelledby': 'basic-button',
         }}
