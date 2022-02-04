@@ -87,7 +87,7 @@ export default function Edit(){
         />
         <TextField id="outlined-search" label="Search field" label="Img Link" value={img} 
          onChange={
-            (e)=> handler(e,setFb)}
+            (e)=> handler(e,setImg)}
         />
         <TextField
           id="outlined-helperText"
