@@ -3,7 +3,7 @@ import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import {Box} from '@mui/material';
-import { purple, red } from '@mui/material/colors';
+// import { purple, red } from '@mui/material/colors';
 export default function ProfileTab({profileData}) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);

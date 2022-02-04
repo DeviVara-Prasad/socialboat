@@ -1,7 +1,6 @@
 import React from 'react';
 import {Typography} from '@mui/material';
-import {CardMedia,Box,Avatar,Link} from '@mui/material';
-import { textAlign } from '@mui/system';
+import {Box,Avatar,Link} from '@mui/material';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import LinkedInIcon  from '@mui/icons-material/LinkedIn';

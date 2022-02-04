@@ -1,20 +1,10 @@
 
 import React, { useEffect, useState } from 'react';
-import {Box,Chip,Button} from '@mui/material';
+import {Box,Button} from '@mui/material';
 import TextField from '@mui/material/TextField';
 import axios from 'axios';
 export default function Edit(){
     const uid = localStorage.getItem("uid");
-    const [data,setData] = useState({
-        instagram: "",
-        name: "",
-        age: "",
-        img: "",
-        bio: "",
-        fb: "https://www.fb.com",
-        linkedIn: "https://www.linkedin.com/in/DeviVara-Prasad" 
-        
-    });
     const [name,setName] = useState("");
     const [age,setAge] = useState(0);
     const [img,setImg] = useState("");
@@ -95,7 +85,10 @@ export default function Edit(){
           onChange={
             (e)=> handler(e,setFb)}
         />
-        <TextField id="outlined-search" label="Search field" label="Img Link"/>
+        <TextField id="outlined-search" label="Search field" label="Img Link" value={img} 
+         onChange={
+            (e)=> handler(e,setFb)}
+        />
         <TextField
           id="outlined-helperText"
           label="LinkedIn"
